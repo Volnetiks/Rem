@@ -6,7 +6,7 @@ module.exports.run = async (bot, message, args, sql) => {
         const embed = new Discord.RichEmbed()
         .setTitle("Update")
         .setColor("#00c7ff")
-        exec('git pull origin master', (error, stdout, sdterr) => {
+        exec('git pull origin master', (error, stdout, stderr) => {
             if(error) {
                 embed.setDescription('```' + `An error has occured: ${error}` + '```')
             } else if (stdout.includes("Already up-to-date")) {
