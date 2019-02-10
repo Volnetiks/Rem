@@ -1,0 +1,26 @@
+{
+  "name": "rem",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Volnetiks",
+  "license": "ISC",
+  "dependencies": {
+    "discord.js": "^11.4.2",
+    "emoji-regex": "^7.0.3",
+    "emoji-unicode": "^1.0.9",
+    "fortnite": "^4.1.1",
+    "fs": "0.0.1-security",
+    "jimp": "^0.6.0",
+    "ms": "^2.1.1",
+    "mysql": "^2.16.0",
+    "nodemailer": "^5.1.1",
+    "opusscript": "0.0.6",
+    "osu-api": "0.0.3",
+    "punycode": "^2.1.1",
+    "ytdl-core": "^0.28.0"
+  }
+}
