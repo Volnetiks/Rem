@@ -14,10 +14,10 @@ const nodemailer = require("nodemailer");
 process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
 
 var sql = mysql.createConnection({
-    host: "95.179.208.160",
-    user: "root",
-    password: "Imaddu44lekikoo",
-    database: "rem"
+    host: "lol",
+    user: "patate",
+    password: "ur mom gay",
+    database: "rip"
 });
 
 const transporter = nodemailer.createTransport({
@@ -25,7 +25,7 @@ const transporter = nodemailer.createTransport({
     secure: false,
     auth: {
       user: 'volnetiks@gmail.com',
-      pass: 'Imaddu44lekikoo'
+      pass: 'no u'
     }
 });
 
