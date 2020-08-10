@@ -9,6 +9,7 @@
   "author": "Volnetiks",
   "license": "ISC",
   "dependencies": {
+    "ascii-table": "0.0.9",
     "discord.js": "^11.4.2",
     "dotenv": "^8.2.0",
     "emoji-regex": "^7.0.3",
