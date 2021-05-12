@@ -20,7 +20,7 @@
     "jimp": "^0.16.0",
     "ms": "^2.1.2",
     "mysql": "^2.18.1",
-    "nodemailer": "^5.1.1",
+    "nodemailer": "^6.4.16",
     "opusscript": "0.0.6",
     "osu-api": "0.0.3",
     "punycode": "^2.1.1",
