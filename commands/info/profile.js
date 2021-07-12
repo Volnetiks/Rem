@@ -1,4 +1,4 @@
-const { RichEmbed } = require("discord.js/src");
+const { MessageEmbed } = require("discord.js");
 const { stripIndents } = require("common-tags");
 const { getMember, formatDate } = require("../../utils/functions.js");
 
@@ -8,15 +8,15 @@ module.exports = {
     description: "Give information about you or a specific member.",
     usage: "[username | id | mention]",
     run: async (client, message, args) => {
-        const member = getMember(message, args.join(" "));
+        const member = await getMember(message, args.join(" "));
 
         const joined = formatDate(member.joinedAt);
-        const roles = member.roles.filter(r => r.id !== message.guild.id).map(r => r).join(", ") || "This user have no roles.";
+        const roles = member.roles.cache.filter(r => r.id !== message.guild.id).map(r => r).join(", ") || "This user have no roles.";
         const created = formatDate(member.user.createdAt);
 
-        const embed = new RichEmbed()
+        const embed = new MessageEmbed()
             .setFooter(member.displayName, member.user.displayAvatarURL)
-            .setThumbnail(member.user.displayAvatarURL)
+            .setThumbnail(member.user.displayAvatarURL())
             .setColor(member.displayHexColor === '#000000' ? '#ffffff' : member.displayHexColor)
             .addField('Member information:', stripIndents`**> Display name:** ${member.displayName}
             **> Joined at:** ${joined}

@@ -2,7 +2,8 @@ module.exports = {
     getMember: function(message, toFind = '') {
         toFind = toFind.toLowerCase();
 
-        let target = message.guild.members.get(toFind);
+        let target;
+        message.guild.members.fetch(toFind).then(member => target = member);
 
         if(!target && message.mentions.members) targe = message.mentions.members.first();
 

@@ -1,4 +1,4 @@
-const { RichEmbed } = require("discord.js/src");
+const { MessageEmbed } = require("discord.js");
 const { stripIndents } = require("common-tags");
 
 module.exports = {
@@ -9,18 +9,19 @@ module.exports = {
     run: async (client, message, args) => {
         if(message.deletable) message.delete();
 
-        let member = message.mentions.members.first() || message.guild.members.get(args[0]);
+        let member = message.mentions.members.first() || message.guild.members.fetch(args[0]).then(u => u = member);
         if(!member) return message.reply("Could not find user.");
 
-        if(member.hasPermission("BAN_MEMBERS") || member.user.bot) return message.reply("This user can't be reported.");
+        // if(member.hasPermission("BAN_MEMBERS") || member.user.bot) return message.reply("This user can't be reported.");
 
         if(!args[1]) return message.reply("Please, provide a reason");
 
-        const channel = message.guild.channels.find(channel => channel.name === "reports");
+        //TODO: fix channel find with message.guild.channels.cache
+        // let channel = message.guild.channels.fetch(channel => channel.name === "reports").then(chan => chan = channel);
 
-        if(!channel) return message.channel.send("Could not find a \`#report\` channel");
+        // if(!channel) return message.channel.send("Could not find a \`#report\` channel");
 
-        const embed = new RichEmbed()
+        const embed = new MessageEmbed()
             .setColor("#b0005e")
             .setTimestamp()
             .setFooter(message.guild.name, message.guild.iconURL)
@@ -30,6 +31,6 @@ module.exports = {
             **> Reason:** ${args.slice(1).join(" ")}
             **> Channel:** ${message.channel}`);
         
-        return channel.send(embed);
+        return message.channel.send(embed);
     }
 }
